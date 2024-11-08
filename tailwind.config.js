@@ -1,8 +1,30 @@
+const { execSync } = require('child_process');
+const plutoniumGemPath = execSync("bundle show plutonium").toString().trim();
+const plutoniumTailwindConfig = require(`${plutoniumGemPath}/tailwind.options.js`)
+const tailwindPlugin = require('tailwindcss/plugin')
+
 module.exports = {
+  darkMode: plutoniumTailwindConfig.darkMode,
+  plugins: [
+    // add plugins here
+  ].concat(plutoniumTailwindConfig.plugins.map(function (plugin) {
+    switch (typeof plugin) {
+      case "function":
+        return tailwindPlugin(plugin)
+      case "string":
+        return require(plugin)
+      default:
+        throw Error(`unsupported plugin: ${plugin}: ${(typeof plugin)}`)
+    }
+  })),
+  theme: plutoniumTailwindConfig.theme,
   content: [
-    './app/views/**/*.html.erb',
-    './app/helpers/**/*.rb',
-    './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
-  ]
+    `${__dirname}/app/**/*.rb`,
+    `${__dirname}/app/views/**/*.html.erb`,
+    `${__dirname}/app/helpers/**/*.rb`,
+    `${__dirname}/app/assets/stylesheets/**/*.css`,
+    `${__dirname}/app/javascript/**/*.js`,
+    `${__dirname}/packages/**/app/**/*.rb`,
+    `${__dirname}/packages/**/app/views/**/*.html.erb`,
+  ].concat(plutoniumTailwindConfig.content),
 }
