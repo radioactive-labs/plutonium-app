@@ -166,13 +166,13 @@ class UserRodauthPlugin < RodauthPlugin
     # ==> Redirects
 
     # Redirect to home after login.
-    create_account_redirect "/"
+    create_account_redirect "/dashboard"
 
     # Redirect to home after login.
-    login_redirect "/"
+    login_redirect "/dashboard"
 
     # Redirect to home page after logout.
-    logout_redirect "/"
+    logout_redirect "/dashboard"
 
     # Redirect to wherever login redirects to after account verification.
     verify_account_redirect { login_redirect }
