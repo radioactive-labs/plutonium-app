@@ -9,10 +9,14 @@ class Blogging::PostPolicy < Blogging::ResourcePolicy
     true
   end
 
+  def publish?
+    !record.published_at
+  end
+
   # Core attributes
 
   def permitted_attributes_for_create
-    [:user, :title, :content, :published_at]
+    [:user, :title, :content]
   end
 
   def permitted_attributes_for_read
