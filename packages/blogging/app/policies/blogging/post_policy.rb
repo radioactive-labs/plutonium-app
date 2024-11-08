@@ -16,7 +16,7 @@ class Blogging::PostPolicy < Blogging::ResourcePolicy
   # Core attributes
 
   def permitted_attributes_for_create
-    [:user, :title, :content]
+    [:user, :title, :content, :comments]
   end
 
   def permitted_attributes_for_read

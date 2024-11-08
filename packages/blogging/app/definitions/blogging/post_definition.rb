@@ -7,4 +7,8 @@ class Blogging::PostDefinition < Blogging::ResourceDefinition
   action :publish,
        interaction: Blogging::Posts::Publish,
        collection_record_action: false # do not show this on the table
+
+  nested_input :comments,
+    using: Blogging::CommentDefinition,
+    fields: %i[user body]
 end

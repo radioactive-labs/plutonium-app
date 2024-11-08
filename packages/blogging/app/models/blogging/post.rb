@@ -31,6 +31,7 @@ class Blogging::Post < Blogging::ResourceRecord
   # add has_one associations above.
 
   has_many :comments
+  accepts_nested_attributes_for :comments
   # add has_many associations above.
 
   # add attachments above.
