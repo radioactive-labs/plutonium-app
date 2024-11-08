@@ -66,3 +66,6 @@ gem "annotate", "~> 3.2", :group => :development
 gem "standardrb", "~> 1.0"
 
 gem "letter_opener", "~> 1.10", :group => :development
+
+gem "bcrypt", "~> 3.1"
+gem "rodauth-rails", "~> 1.15"
