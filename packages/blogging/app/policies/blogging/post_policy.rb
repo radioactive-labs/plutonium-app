@@ -19,6 +19,10 @@ class Blogging::PostPolicy < Blogging::ResourcePolicy
     [:user, :title, :content, :published_at, :created_at, :updated_at]
   end
 
+  def permitted_attributes_for_index
+    [:user, :title, :published_at, :created_at]
+  end
+
   # Associations
 
   def permitted_associations
