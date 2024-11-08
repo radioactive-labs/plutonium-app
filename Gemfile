@@ -62,3 +62,5 @@ end
 gem "plutonium"
 
 gem "annotate", "~> 3.2", :group => :development
+
+gem "standardrb", "~> 1.0"
