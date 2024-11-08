@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_08_145956) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_08_150309) do
+  create_table "blogging_posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogging_posts_on_user_id"
+  end
+
   create_table "user_login_change_keys", force: :cascade do |t|
     t.string "key", null: false
     t.string "login", null: false
@@ -41,6 +51,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_08_145956) do
     t.index ["email"], name: "index_users_on_email", unique: true, where: "status IN (1, 2)"
   end
 
+  add_foreign_key "blogging_posts", "users"
   add_foreign_key "user_login_change_keys", "users", column: "id"
   add_foreign_key "user_password_reset_keys", "users", column: "id"
   add_foreign_key "user_remember_keys", "users", column: "id"
