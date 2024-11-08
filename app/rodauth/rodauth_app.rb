@@ -10,7 +10,7 @@ class RodauthApp < Rodauth::Rails::App
     r.rodauth(:user)
 
     # plugin route configuration
-    rodauth(:user).load_memory # autologin remembered users
+    # rodauth(:user).load_memory # autologin remembered users
 
     # ==> Authenticating requests
     # Call `rodauth.require_account` for requests that you want to

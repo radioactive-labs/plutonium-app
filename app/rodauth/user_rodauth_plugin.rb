@@ -12,16 +12,16 @@ class UserRodauthPlugin < RodauthPlugin
     # http://rodauth.jeremyevans.net/documentation.html
 
     # List of authentication features that are loaded.
-    enable :login, :remember, :logout, :create_account, :verify_account, :verify_account_grace_period, :reset_password, :reset_password_notify, :change_login, :verify_login_change, :change_password, :change_password_notify, :internal_request
+    enable :login, :logout, :create_account, :internal_request
 
     # ==> General
 
     # Change prefix of table and foreign key column names from default "account"
     accounts_table :users
-    remember_table :user_remember_keys
-    reset_password_table :user_password_reset_keys
-    verify_account_table :user_verification_keys
-    verify_login_change_table :user_login_change_keys
+    # remember_table :user_remember_keys
+    # reset_password_table :user_password_reset_keys
+    # verify_account_table :user_verification_keys
+    # verify_login_change_table :user_login_change_keys
 
     # The secret key used for hashing public-facing tokens for various features.
     # Defaults to Rails `secret_key_base`, but you can use your own secret key.
@@ -66,29 +66,29 @@ class UserRodauthPlugin < RodauthPlugin
     # ==> Emails
     # Use a custom mailer for delivering authentication emails.
 
-    create_reset_password_email do
-      Rodauth::UserMailer.reset_password(self.class.configuration_name, account_id, reset_password_key_value)
-    end
+    # create_reset_password_email do
+    #   Rodauth::UserMailer.reset_password(self.class.configuration_name, account_id, reset_password_key_value)
+    # end
 
-    create_verify_account_email do
-      Rodauth::UserMailer.verify_account(self.class.configuration_name, account_id, verify_account_key_value)
-    end
+    # create_verify_account_email do
+    #   Rodauth::UserMailer.verify_account(self.class.configuration_name, account_id, verify_account_key_value)
+    # end
 
-    create_verify_login_change_email do |_login|
-      Rodauth::UserMailer.verify_login_change(self.class.configuration_name, account_id, verify_login_change_key_value)
-    end
+    # create_verify_login_change_email do |_login|
+    #   Rodauth::UserMailer.verify_login_change(self.class.configuration_name, account_id, verify_login_change_key_value)
+    # end
 
-    create_password_changed_email do
-      Rodauth::UserMailer.change_password_notify(self.class.configuration_name, account_id)
-    end
+    # create_password_changed_email do
+    #   Rodauth::UserMailer.change_password_notify(self.class.configuration_name, account_id)
+    # end
 
-    create_reset_password_notify_email do
-      Rodauth::UserMailer.reset_password_notify(self.class.configuration_name, account_id)
-    end
+    # create_reset_password_notify_email do
+    #   Rodauth::UserMailer.reset_password_notify(self.class.configuration_name, account_id)
+    # end
 
     send_email do |email|
-      # queue email delivery on the mailer after the transaction commits
-      db.after_commit { email.deliver_later }
+      # # queue email delivery on the mailer after the transaction commits
+      # db.after_commit { email.deliver_later }
     end
 
     # ==> Flash
@@ -140,11 +140,11 @@ class UserRodauthPlugin < RodauthPlugin
     # Or only remember users that have ticked a "Remember Me" checkbox on login.
     # after_login { remember_login if param_or_nil("remember") }
 
-    # Extend user's remember period when remembered via a cookie
-    extend_remember_deadline? true
+    # # Extend user's remember period when remembered via a cookie
+    # extend_remember_deadline? true
 
-    # Store the user's remember cookie under a namespace
-    remember_cookie_key "_user_remember"
+    # # Store the user's remember cookie under a namespace
+    # remember_cookie_key "_user_remember"
 
     # ==> Hooks
 
@@ -174,11 +174,11 @@ class UserRodauthPlugin < RodauthPlugin
     # Redirect to home page after logout.
     logout_redirect "/dashboard"
 
-    # Redirect to wherever login redirects to after account verification.
-    verify_account_redirect { login_redirect }
+    # # Redirect to wherever login redirects to after account verification.
+    # verify_account_redirect { login_redirect }
 
-    # Redirect to login page after password reset.
-    reset_password_redirect { login_path }
+    # # Redirect to login page after password reset.
+    # reset_password_redirect { login_path }
 
     # Ensure requiring login follows login route changes.
     require_login_redirect { login_path }
