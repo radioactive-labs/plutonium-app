@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Sample Application for the [Plutonium](https://github.com/radioactive-labs/plutonium-core) project.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can visit the live demo here: [https://plutonium-app.onrender.com/](https://plutonium-app.onrender.com/)
