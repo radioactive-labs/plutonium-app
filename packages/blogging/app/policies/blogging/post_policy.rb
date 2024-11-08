@@ -30,6 +30,6 @@ class Blogging::PostPolicy < Blogging::ResourcePolicy
   # Associations
 
   def permitted_associations
-    %i[]
+    %i[comments]
   end
 end
