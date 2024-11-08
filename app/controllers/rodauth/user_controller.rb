@@ -6,11 +6,11 @@ module Rodauth
     private
 
     def current_account(name = :user)
-      super(name)
+      super
     end
 
     def rodauth(name = :user)
-      super(name)
+      super
     end
   end
 end
