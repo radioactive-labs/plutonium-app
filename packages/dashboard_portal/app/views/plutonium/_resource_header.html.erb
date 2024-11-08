@@ -1,0 +1,38 @@
+<%# locals: (sidebar_toggle:) %>
+
+<%= render_component :resource_header, sidebar_toggle: do |header| %>
+  <% header.with_action do %>
+    <%=
+      render_component :nav_grid_menu, label: "Apps" do |menu|
+        menu.with_item url: "#", name: "Sales", icon: "outline/sale-percent"
+        menu.with_item url: "#", name: "Users", icon: "outline/users"
+      end
+    %>
+  <% end %>
+
+  <% header.with_action do %>
+    <%= render_component :nav_user, email: current_user.try(:email) || current_user, logout_url: try(:logout_url) do |nav_user| %>
+      <% nav_user.with_section do |section| %>
+        <% section.with_link url: "#", label: "My profile" %>
+        <% section.with_link url: "#", label: "Account settings" %>
+      <% end %>
+
+      <% nav_user.with_section do |section| %>
+        <% section.with_link url: "#", label: "My likes" do |link| %>
+          <% link.with_leading do %>
+            <%= render_icon "outline/heart", classname: "mr-2 text-gray-400" %>
+          <% end %>
+        <% end %>
+
+        <% section.with_link url: "#", label: "Pro version" do |link| %>
+          <% link.with_leading do %>
+            <%= render_icon "outline/fire", classname: "mr-2 text-primary-600 dark:text-primary-500" %>
+          <% end %>
+          <% link.with_trailing do %>
+            <%= render_icon "outline/angle-right", size: :sm %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
