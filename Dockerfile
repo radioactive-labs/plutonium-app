@@ -72,9 +72,6 @@ RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
 
-# Make sure the entrypoint is executable
-RUN chmod +x /rails/bin/docker-entrypoint
-
 # Switch to non-root user
 USER 1000:1000
 
