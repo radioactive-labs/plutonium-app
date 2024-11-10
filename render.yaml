@@ -1,6 +1,5 @@
 databases:
   - name: plutonium-app
-    databaseName: plutonium-app
     user: plutonium-app
     plan: free
 
