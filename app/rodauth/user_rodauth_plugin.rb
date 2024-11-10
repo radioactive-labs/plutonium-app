@@ -12,7 +12,7 @@ class UserRodauthPlugin < RodauthPlugin
     # http://rodauth.jeremyevans.net/documentation.html
 
     # List of authentication features that are loaded.
-    enable :login, :logout, :create_account, :internal_request
+    enable :login, :logout, :create_account, :internal_request, :case_insensitive_login
 
     # ==> General
 
