@@ -68,3 +68,7 @@ gem "bcrypt", "~> 3.1"
 gem "rodauth-rails", "~> 1.15"
 # Ensure all SQLite connections are properly configured
 gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
+# Add Solid Queue for background jobs
+gem "solid_queue", "~> 0.9"
+# Add a web UI for Solid Queue
+gem "mission_control-jobs", "~> 0.3"

@@ -25,5 +25,11 @@ module PlutoniumApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Use Solid Queue for background jobs
+    config.active_job.queue_adapter = :solid_queue
+    config.solid_queue.connects_to = {database: {writing: :queue}}
+    # Ensure authorization is enabled for the Solid Queue web UI
+    config.mission_control.jobs.base_controller_class = "MissionControl::BaseController"
   end
 end
