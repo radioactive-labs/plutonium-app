@@ -66,3 +66,5 @@ gem "letter_opener", "~> 1.10", group: :development
 
 gem "bcrypt", "~> 3.1"
 gem "rodauth-rails", "~> 1.15"
+# Ensure all SQLite connections are properly configured
+gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
