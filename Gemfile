@@ -44,9 +44,6 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
 end
 
 group :development do
@@ -59,7 +56,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "plutonium"
+gem "plutonium", path: "/Users/stefan/Documents/plutonium/plutonium-core"
 
 gem "annotate", "~> 3.2", group: :development
 
