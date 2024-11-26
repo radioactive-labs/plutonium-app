@@ -4,6 +4,8 @@ class Blogging::PostDefinition < Blogging::ResourceDefinition
   display :content, class: "col-span-full"
   display :published_at, class: "col-span-full"
 
+  field :content, as: :markdown
+
   action :publish,
        interaction: Blogging::Posts::Publish,
        collection_record_action: false # do not show this on the table

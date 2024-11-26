@@ -56,7 +56,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "plutonium", path: "/Users/stefan/Documents/plutonium/plutonium-core"
+gem "plutonium" # , path: "/Users/stefan/Documents/plutonium/plutonium-core"
 
 gem "annotate", "~> 3.2", group: :development
 
