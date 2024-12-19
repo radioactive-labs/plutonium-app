@@ -68,4 +68,4 @@ gem "standard", ">= 1.35.1"
 gem "letter_opener", "~> 1.10", group: :development
 
 gem "bcrypt", "~> 3.1"
-gem "rodauth-rails", "~> 1.15"
+gem "rodauth-rails", "~> 2.0"
